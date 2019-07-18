@@ -1,4 +1,5 @@
 import React from 'react';
+import './Article.css';
 
 function Article(props) {
   const {article} = props;
@@ -7,8 +8,9 @@ function Article(props) {
     <div className="Article">
       <h2>
       	{article.title}
-      	<button onClick={handleClick}>close</button>
+      	<button onClick={handleClick} className="btn">close</button>
       </h2>
+      
       {body}
       <h3>creation date: {(new Date(article.date)).toString()}</h3>
     </div>

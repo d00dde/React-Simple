@@ -1,6 +1,8 @@
 import React from 'react';
 import Article from './Article';
 import fixtures from '../fixtures';
+import './App.css';
+
 
 function App() {
   return (
