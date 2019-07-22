@@ -1,7 +1,7 @@
 import React from 'react';
-import Article from './Article';
+import ArticleList from './ArticleList';
 import fixtures from '../fixtures';
-import './App.css';
+//import './App.css';
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>App name</h1>
-        <Article article={fixtures[0]}/>
+        <ArticleList articles={fixtures}/>
       </header>
     </div>
   );
