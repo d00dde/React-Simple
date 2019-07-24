@@ -11,21 +11,21 @@ class Article extends Component {
 
   render() {
     const {article} = this.props;
-    const body = this.state.isOpen ? <section>{article.text}</section> : '';
-    const createDate = this.state.isOpen ? <h3>creation date: {(new Date(article.date)).toString()}</h3> : '';
+    const body = this.state.isOpen ? <section className="card-text">{article.text}</section> : '';
+    const createDate = this.state.isOpen ? <h6 className="card-subtitle text-muted">creation date: {(new Date(article.date)).toString()}</h6> : '';
 
     return (
-      <div className="Article">
+      <div className="Article card mx-auto" style={{width: '50%'}}>
         <h2>
-          {article.title}
-          <button onClick={this.handleClick} className="btn">
-            {this.state.isOpen ? 'close':'open'}
-          </button>
+          <div className="card-header">
+            {article.title}
+            <button onClick={this.handleClick} className="btn btn-primary float-right">
+              {this.state.isOpen ? 'close':'open'}
+            </button>
+          </div>
         </h2>
-        
-        {body}
         {createDate}
-
+        {body}
       </div>
     );
   }
