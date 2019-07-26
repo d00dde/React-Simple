@@ -2,25 +2,37 @@ import React, {Component} from 'react';
 import './Article.css';
 
 class Article extends Component {
-  constructor (props) {
+  
+  //Закомментированный код относится к контролю
+  //состояния внутри компонента
+
+  /*constructor (props) {
     super(props);
+    
     this.state = {
-      isOpen: true
+      isOpen: props.defaultOpen
     }
-  }
+  }*/
+
+ /* componentWillReceiveProps (nextProps) {
+    if(nextProps.defaultOpen !== this.props.defaultOpen)
+      this.setState ({
+        isOpen: nextProps.defaultOpen
+      });
+  }*/
 
   render() {
-    const {article} = this.props;
-    const body = this.state.isOpen ? <section className="card-text">{article.text}</section> : '';
-    const createDate = this.state.isOpen ? <h6 className="card-subtitle text-muted">creation date: {(new Date(article.date)).toString()}</h6> : '';
+    const {article, isOpen, onBtnClick} = this.props;
+    const body = isOpen ? <section className="card-text">{article.text}</section> : '';
+    const createDate = isOpen ? <h6 className="card-subtitle text-muted">creation date: {(new Date(article.date)).toString()}</h6> : '';
 
     return (
       <div className="Article card mx-auto" style={{width: '50%'}}>
         <h2>
           <div className="card-header">
             {article.title}
-            <button onClick={this.handleClick} className="btn btn-primary float-right">
-              {this.state.isOpen ? 'close':'open'}
+            <button onClick={onBtnClick} className="btn btn-primary float-right">
+              {isOpen ? 'close':'open'}
             </button>
           </div>
         </h2>
@@ -29,17 +41,11 @@ class Article extends Component {
       </div>
     );
   }
-
-  handleClick = () => {
-  this.setState({
-    isOpen: !this.state.isOpen
-  });
+/*  handleClick = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }*/
 }
-
-
-}
-
-
-
 
 export default Article;
